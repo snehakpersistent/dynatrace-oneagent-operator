@@ -25,7 +25,7 @@ spec:
         - name: dynatrace-oneagent-operator
           args:
             - operator
-          image: docker.io/dynatrace/dynatrace-oneagent-operator:snapshot
+          image: quay.io/snehakpersistent/dynatrace-oneagent-operator:ppc64le
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
@@ -56,6 +56,7 @@ spec:
                     values:
                       - amd64
                       - arm64
+                      - ppcle
                   - key: beta.kubernetes.io/os
                     operator: In
                     values:
@@ -66,6 +67,7 @@ spec:
                     values:
                       - amd64
                       - arm64
+                      - ppcle
                   - key: kubernetes.io/os
                     operator: In
                     values:
