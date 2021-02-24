@@ -524,7 +524,7 @@ func newPodSpecForCR(instance *dynatracev1alpha1.OneAgent, unprivileged bool, lo
 								{
 									Key:      "beta.kubernetes.io/arch",
 									Operator: corev1.NodeSelectorOpIn,
-									Values:   []string{"amd64", "arm64", "ppcle"},
+									Values:   []string{"amd64", "arm64", "ppc64le"},
 								},
 								{
 									Key:      "beta.kubernetes.io/os",
@@ -538,7 +538,7 @@ func newPodSpecForCR(instance *dynatracev1alpha1.OneAgent, unprivileged bool, lo
 								{
 									Key:      "kubernetes.io/arch",
 									Operator: corev1.NodeSelectorOpIn,
-									Values:   []string{"amd64", "arm64", "ppcle"},
+									Values:   []string{"amd64", "arm64", "ppc64le"},
 								},
 								{
 									Key:      "kubernetes.io/os",
@@ -570,7 +570,7 @@ func newPodSpecForCR(instance *dynatracev1alpha1.OneAgent, unprivileged bool, lo
 }
 
 func preparePodSpecInstaller(p *corev1.PodSpec, instance *dynatracev1alpha1.OneAgent) error {
-	img := "docker.io/dynatrace/oneagent:latest"
+	img := "quay.io/snehakpersistent/dynatrace-oneagent-operator:ppc64le"
 	envVarImg := os.Getenv("RELATED_IMAGE_DYNATRACE_ONEAGENT")
 
 	if instance.GetOneAgentSpec().Image != "" {
