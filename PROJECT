@@ -1,0 +1,15 @@
+domain: com
+layout: go.kubebuilder.io/v3
+projectName: dynatrace-monitoring
+repo: github.com/Dynatrace/dynatrace-oneagent-operator
+resources:
+- group: dynatrace
+  kind: OneAgent
+  version: v1alpha1
+- group: dynatrace
+  kind: OneAgentAPM
+  version: v1alpha1
+version: "3"
+plugins:
+  manifests.sdk.operatorframework.io/v3: {}
+  scorecard.sdk.operatorframework.io/v3: {}
