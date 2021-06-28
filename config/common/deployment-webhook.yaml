@@ -31,6 +31,7 @@ spec:
                     values:
                       - amd64
                       - arm64
+                      - ppc64le
                   - key: beta.kubernetes.io/os
                     operator: In
                     values:
@@ -41,6 +42,7 @@ spec:
                     values:
                       - amd64
                       - arm64
+                      - ppc64le
                   - key: kubernetes.io/os
                     operator: In
                     values:
@@ -49,7 +51,7 @@ spec:
         - name: webhook
           args:
             - webhook-server
-          image: docker.io/dynatrace/dynatrace-oneagent-operator:snapshot
+          image: quay.io/snehakpersistent/dynatrace-oneagent-operator:ppc64le-master
           imagePullPolicy: Always
           env:
             - name: POD_NAMESPACE
@@ -92,7 +94,7 @@ spec:
         - name: bootstrapper
           args:
             - webhook-bootstrapper
-          image: docker.io/dynatrace/dynatrace-oneagent-operator:snapshot
+          image: quay.io/snehakpersistent/dynatrace-oneagent-operator:ppc64le-master
           imagePullPolicy: Always
           env:
             - name: POD_NAMESPACE
